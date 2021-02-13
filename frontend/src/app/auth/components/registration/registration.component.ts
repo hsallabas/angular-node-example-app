@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ICustomControl } from '@shared/models/form.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '@shared/services/form.service';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,59 +10,19 @@ import { FormService } from '@shared/services/form.service';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  button: string = 'buttons.registration';
-  private _prefix: string = 'auth.registration.form.';
-  controls: ICustomControl[] = [
-    {
-      id: 'email',
-      type: 'email',
-      validators: ['required', 'email'],
-      errors: {
-        required: 'required',
-        email: 'email'
-      }
-    },
-    {
-      id: 'login',
-      type: 'text',
-      validators: []
-    },
-    {
-      id: 'password',
-      type: 'password',
-      validators: ['required', 'pattern', 'minLength'],
-      minLength: 6,
-      pattern: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
-      errors: {
-        required: 'required',
-        pattern: 'pattern',
-        minLength: 'minLength'
-      }
-    },
-    {
-      id: 'confirm',
-      type: 'password',
-      validators: ['required', 'pattern', 'minLength'],
-      minLength: 6,
-      // pattern: '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
-      errors: {
-        required: 'required',
-        pattern: 'pattern',
-        minLength: 'minLength'
-      }
-    }
-  ];
-  form: FormGroup;
+  registerForm: FormGroup;
+  errorMessage: string = '';
 
-  constructor(private _formBuilder: FormBuilder,
-              private _formService: FormService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+  ) { }
 
   ngOnInit() {
-    this.form = this._formBuilder.group(this._formService.configureControls(this.controls, this._prefix));
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{1,}')]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  onSubmit() {
-    console.log(this.form.value);
-  }
 }

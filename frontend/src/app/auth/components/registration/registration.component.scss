@@ -1,0 +1,54 @@
+.session-form-hold {
+    width: 100%;
+    min-width: 400px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    .logo {
+        width: 100px;
+        margin: 24px auto;
+    }
+
+    .title {
+        font-size: 21px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 24px;
+
+        .form-field {
+            width: 300px;
+        }
+
+        mat-form-field.mat-form-field {
+            width: 300px !important;
+        }
+
+        .remember-me-wrapper {
+            padding: 0;
+        }
+
+        .forgot-password-wrapper {
+            padding: 0;
+            text-align: end;
+        }
+
+        .login-btn {
+            width: 300px;
+            margin: 16px 0;
+        }
+    }
+
+    .login-wrapper {
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+}

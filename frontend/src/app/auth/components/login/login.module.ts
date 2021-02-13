@@ -4,6 +4,11 @@ import { LoginComponent } from './login.component';
 import { LoginRoutes } from './login.routing';
 import { SharedFormsModule } from '@shared/shared-forms/shared-forms.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -11,7 +16,12 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     LoginRoutes,
     SharedFormsModule,
-    TranslateModule
+    TranslateModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule
   ]
 })
 export class LoginModule { }

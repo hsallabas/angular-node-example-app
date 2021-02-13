@@ -1,0 +1,94 @@
+.session-form-hold {
+    width: 100%;
+    min-width: 400px;
+    max-width: 400px;
+    margin: 0 auto;
+
+    .logo {
+        width: 100px;
+        margin: 24px auto;
+    }
+
+    .title {
+        font-size: 21px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 24px;
+
+        .form-field {
+            width: 300px;
+        }
+
+        mat-form-field.mat-form-field {
+            width: 300px !important;
+        }
+
+        .remember-me-wrapper {
+            padding: 0;
+        }
+
+        .forgot-password-wrapper {
+            padding: 0;
+            text-align: end;
+        }
+
+        .login-btn {
+            width: 300px;
+            margin: 16px 0;
+        }
+    }
+
+    .separator {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 24px auto;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        text-align: center;
+
+        .text {
+            display: inline-flex;
+            position: relative;
+            padding: 0 8px;
+            z-index: 9999;
+            color: rgba(0, 0, 0, 0.12);
+
+            &::before {
+                content: "";
+                display: block;
+                width: 30px;
+                position: absolute;
+                top: 10px;
+                border-top: 1px solid;
+                right: 100%;
+                border-top-color: rgba(0, 0, 0, 0.12);
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 30px;
+                position: absolute;
+                top: 10px;
+                border-top: 1px solid;
+                left: 100%;
+                border-top-color: rgba(0, 0, 0, 0.12);
+            }
+        }
+    }
+
+    .create-account-wrapper {
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+}

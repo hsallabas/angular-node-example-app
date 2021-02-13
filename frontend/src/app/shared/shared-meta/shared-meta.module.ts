@@ -14,10 +14,9 @@ export function metaFactory(translate: TranslateService): MetaLoader {
       description: 'Default description',
       'og:site_name': 'App site Universal',
       'og:type': 'website',
-      'og:locale': 'ru_RU',
+      'og:locale': 'en-US',
       'og:locale:alternate': [
         { code: 'en', name: 'English', culture: 'en-US' },
-        { code: 'ru', name: 'Русский', culture: 'ru-RU' },
       ]
         .map((lang: any) => lang.culture)
         .toString(),
