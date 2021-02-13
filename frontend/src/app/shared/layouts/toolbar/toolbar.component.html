@@ -1,1 +1,15 @@
-<span class="toolbar__logo">Angular Universal App</span>
+<div>
+    <span class="toolbar-logo">Demo App</span>
+</div>
+<div class="toolbar-menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        HI, HALIL
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="authService.logOut()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+    </button>
+    </mat-menu>
+</div>

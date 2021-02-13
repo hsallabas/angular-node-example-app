@@ -1,24 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import { TranslatesService, ILang } from '@shared/translates';
+import { AuthService } from '@shared/services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
 })
 export class ToolbarComponent implements OnInit {
-  public langList$: Observable<ILang[]>;
-  public currentLang: string;
 
-  constructor(private _translatesService: TranslatesService) {}
+  constructor(
+    public authService: AuthService
+  ) {}
 
-  ngOnInit(): void {
-    this.langList$ = this._translatesService.getLangList();
-    this.currentLang = this._translatesService.getCurrentLang();
-  }
+  ngOnInit(): void {}
 
-  public changeLang(code: string): void {
-    this._translatesService.changeLang(code);
-  }
 }

@@ -1,4 +1,38 @@
-<h1>{{ "home.title" | translate }}</h1>
-<p>{{ "home.text" | translate }}</p>
-<p>{{ "home.notranslatewarn" | translate }}</p>
-<p *ngIf="errorMessage">errorMessage:{{errorMessage}}</p>
+<div class="content custom-theme">
+    <div class="header">
+        <div class="row">
+            <div class="logo-wrapper">
+                <mat-icon class="shopping-logo"> shopping_basket </mat-icon>
+                <span class="title">Products</span>
+            </div>
+            <div class="search-form-wrapper">
+                <form autocomplete="off">
+                    <div class="row">
+                        <div class="col-5">
+                            <mat-form-field>
+                                <input matInput placeholder="Product Name">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-5">
+                            <mat-form-field>
+                                <mat-label>Select</mat-label>
+                                <mat-select>
+                                    <mat-option value="one">First option</mat-option>
+                                    <mat-option value="two">Second option</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-2">
+                            <button mat-icon-button aria-label="search">
+                                <mat-icon>search</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="add-product-wrapper">
+                test
+            </div>
+        </div>
+    </div>
+</div>

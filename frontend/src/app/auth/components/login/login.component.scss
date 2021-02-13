@@ -68,26 +68,22 @@
             z-index: 9999;
             color: rgba(0, 0, 0, 0.12);
 
-            &::before {
+            &::before, &::after {
                 content: "";
                 display: block;
                 width: 30px;
                 position: absolute;
                 top: 10px;
                 border-top: 1px solid;
-                right: 100%;
                 border-top-color: rgba(0, 0, 0, 0.12);
             }
 
+            &::before {
+                right: 100%;
+            }
+
             &::after {
-                content: "";
-                display: block;
-                width: 30px;
-                position: absolute;
-                top: 10px;
-                border-top: 1px solid;
                 left: 100%;
-                border-top-color: rgba(0, 0, 0, 0.12);
             }
         }
     }
