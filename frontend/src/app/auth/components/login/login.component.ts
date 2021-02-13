@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICustomControl } from '@shared/models/form.model';
 import { FormService } from '@shared/services/form.service';
 import { AuthService } from '@shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -26,8 +28,15 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.errorMessage = '';
     if (this.loginFrom.valid) {
-      
+      this.authService.logIn(this.loginFrom.value).toPromise().then((res) => {
+        if (res && res['user']) {
+          this.router.navigate(['/home']);
+        } else {
+          this.errorMessage = res && res['error'] && res['error'].message;
+        }
+      });
     }
   }
 

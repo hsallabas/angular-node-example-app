@@ -11,6 +11,10 @@ const register = catchAsync(async (req, res) => {
 const login = catchAsync(async (req, res) => {
   const { loginName, password } = req.body;
   const user = await authService.loginUserWithLoginNameAndPassword(loginName, password);
+  if (user && user.error) {
+    res.send(user);
+    return;
+  }
   const tokens = await tokenService.generateAuthTokens(user);
   res.send({ user, tokens });
 });

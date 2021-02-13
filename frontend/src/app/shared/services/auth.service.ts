@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-// import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'environments/environment';
 import { UniversalStorage } from '@shared/storage/universal.storage';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -13,9 +15,11 @@ export class AuthService {
     'token', 'interruptedUrl',
   ];
 
-  constructor(@Inject(UniversalStorage) private _appStorage: Storage,
-              // private _http: HttpClient,
-              private _router: Router) {
+  constructor(
+    @Inject(UniversalStorage) private _appStorage: Storage,
+    private http: HttpClient,
+    private router: Router
+    ) {
     this._authState = new BehaviorSubject(!1);
     this._initialData.forEach((value) => {
       this[value] = this._getStoredItems(value);
@@ -53,23 +57,22 @@ export class AuthService {
     return !!this.token;
   }
 
-  public logIn(formValue: { email: string, password: string }) {
-    // this._http.post('', formValue).subscribe((response: string) => {
-    this._saveValueInCookieStorage('token', formValue.email + formValue.password);
-    // });
-
-    // If the entrance url was interrupted.
-    this._router.navigate([this.interruptedUrl && this.interruptedUrl.length ? this.interruptedUrl : '/home'])
-      .then(() => {
-        this.interruptedUrl = '';
-        // TODO: If Notification (toast) service is present can show successfully Logged in message
-      });
+  public logIn(formValue: { loginName: string, password: string }) {
+    return this.http.post(`${environment.apiUrl}/v1/auth/login`, formValue).pipe(
+      map((res) => {
+        if (res && res['user']) {
+          this._saveValueInCookieStorage('currentUser', JSON.stringify(res['user']));
+          this._saveValueInCookieStorage('token', JSON.stringify(res['tokens']));
+        }
+        return res;
+      }),
+    );
   }
 
   public logOut() {
     this.token = '';
     this._appStorage.clear();
-    this._router.navigate(['/auth', 'login']).then(() => {
+    this.router.navigate(['/auth', 'login']).then(() => {
       // TODO: If Notification (toast) service is present can show successfully Logged out message
     });
   }
@@ -79,7 +82,6 @@ export class AuthService {
   }
 
   private _saveValueInCookieStorage(key: string, value: string): void {
-    // For saving auth token in Cookie storage.
     this._appStorage.setItem(key, value);
     if (key === 'token') {
       this.token = value;

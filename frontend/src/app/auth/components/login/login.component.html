@@ -28,6 +28,9 @@
             <a class="forgot-password" href="/auth/login"> Forgot Password? </a>
           </div>
         </div>
+        <div class="message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
         <div class="login-btn-wrapper">
           <button mat-raised-button color="primary" class="login-btn text-uppercase" (click)="login()">Login</button>
         </div>

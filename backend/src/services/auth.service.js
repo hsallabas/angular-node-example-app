@@ -1,5 +1,4 @@
 const httpStatus = require('http-status');
-const tokenService = require('./token.service');
 const userService = require('./user.service');
 const ApiError = require('../utils/ApiError');
 const { tokenTypes } = require('../config/tokens');
@@ -13,8 +12,13 @@ const bcrypt = require('bcryptjs');
  */
 const loginUserWithLoginNameAndPassword = async (loginName, password) => {
   const user = await userService.getUserByLoginName(loginName);
-  if (!user || !bcrypt.compare(password, user.password)) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect user name or password');
+  if (!user || !await bcrypt.compare(password, user.password)) {
+    return {
+      error: {
+          message: 'Incorrect user name or password',
+          statusCode: httpStatus.UNAUTHORIZED,
+      }
+    }
   }
   return user;
 };
