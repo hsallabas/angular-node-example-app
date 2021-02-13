@@ -12,6 +12,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { InlineStyleModule } from './inline-style/inline-style.module';
 import { InlineStyleComponent } from './inline-style/inline-style.component';
 import { StateTransferInitializerModule } from '@nguniversal/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -29,6 +30,7 @@ export function getRequest(): any {
     TranslatesBrowserModule,
     InlineStyleModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: false }),
+    BrowserAnimationsModule,
   ],
   providers: [
     {
