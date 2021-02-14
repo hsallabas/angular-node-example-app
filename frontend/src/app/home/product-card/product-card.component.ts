@@ -23,7 +23,7 @@ export class ProductCardComponent extends BaseComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.selectedProduct.pipe(takeUntil(this.destroyed$)).subscribe(res => {
       this.selectedProduct = res;
-    })
+    });
   }
 
   selectProduct() {

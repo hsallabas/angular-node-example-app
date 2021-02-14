@@ -14,6 +14,7 @@ import { HomeComponent } from './home.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { CartComponent } from './cart/cart.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { CartComponent } from './cart/cart.component';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   declarations: [HomeComponent, ProductCardComponent, AddToCartComponent, CartComponent],
 })

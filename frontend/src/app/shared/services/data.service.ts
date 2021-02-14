@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
   selectedProduct = new BehaviorSubject<any>('');
+  cart = new BehaviorSubject<any>('');
 
   constructor(
     private http: HttpClient,
@@ -30,6 +31,17 @@ export class DataService {
  */
   getCart(data) {
     return this.http.post(`${environment.apiUrl}/v1/cart`, data).pipe(
+      map((res) => {
+        return res;
+      }),
+    );
+  }
+
+  /**
+* add new product in cart
+*/
+  addNewItemToCart(data) {
+    return this.http.post(`${environment.apiUrl}/v1/cart/addItem`, data).pipe(
       map((res) => {
         return res;
       }),

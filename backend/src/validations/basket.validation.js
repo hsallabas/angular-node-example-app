@@ -6,7 +6,15 @@ const getBasket = {
   }),
 };
 
+const addItem = {
+  body: Joi.object().keys({
+    userID: Joi.number().required(),
+    productID: Joi.number().required(),
+    quantity: Joi.number().required(),
+  }),
+};
+
 module.exports = {
     getBasket,
-
+    addItem,
 };

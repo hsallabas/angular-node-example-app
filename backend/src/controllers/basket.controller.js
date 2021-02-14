@@ -11,6 +11,16 @@ const getBaskets = catchAsync(async (req, res) => {
   });
 });
 
+const addItem = catchAsync(async (req, res) => {
+  const result = await basketService.addItem(req.body);
+  res.send({ 
+    data: result,
+    message: 'Add item',
+    statusCode: httpStatus.OK,
+  });
+});
+
 module.exports = {
-  getBaskets
+  getBaskets,
+  addItem
 };
