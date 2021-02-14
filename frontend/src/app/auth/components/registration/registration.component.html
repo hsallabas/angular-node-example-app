@@ -18,14 +18,17 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Password (Confirm)</mat-label>
-          <input matInput>
+          <input matInput type="password" formControlName="passwordConfirm">
           <mat-icon matSuffix class="material-icons-outlined">vpn_key</mat-icon>
         </mat-form-field>
         <div class="col-12 remember-me-wrapper">
           <mat-checkbox>Accept <a href="#">terms and conditions</a></mat-checkbox>
         </div>
+        <div class="message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
         <div class="login-btn-wrapper">
-          <button mat-raised-button color="primary" class="login-btn text-uppercase">Create an Account</button>
+          <button mat-raised-button color="primary" class="login-btn text-uppercase" (click)="createAccount()">Create an Account</button>
         </div>
       </form>
       <div class="login-wrapper">

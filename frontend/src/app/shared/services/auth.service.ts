@@ -14,6 +14,7 @@ export class AuthService {
   private _initialData: string[] = [
     'token', 'interruptedUrl',
   ];
+  errorMessage = new BehaviorSubject<any>('');
 
   constructor(
     @Inject(UniversalStorage) private _appStorage: Storage,
@@ -59,6 +60,18 @@ export class AuthService {
 
   public logIn(formValue: { loginName: string, password: string }) {
     return this.http.post(`${environment.apiUrl}/v1/auth/login`, formValue).pipe(
+      map((res) => {
+        if (res && res['user']) {
+          this._saveValueInCookieStorage('currentUser', JSON.stringify(res['user']));
+          this._saveValueInCookieStorage('token', JSON.stringify(res['tokens']));
+        }
+        return res;
+      }),
+    );
+  }
+
+  public register(formValue) {
+    return this.http.post(`${environment.apiUrl}/v1/auth/register`, formValue).pipe(
       map((res) => {
         if (res && res['user']) {
           this._saveValueInCookieStorage('currentUser', JSON.stringify(res['user']));

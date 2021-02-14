@@ -3,6 +3,8 @@ import { ICustomControl } from '@shared/models/form.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '@shared/services/form.service';
 import { AuthService } from '@shared/services/auth.service';
+import { PasswordMatcher } from '@shared/drectives/password-matcher.directive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -16,13 +18,28 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{1,}')]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      loginName: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      passwordConfirm: ['', [Validators.required]]
     });
+    this.registerForm.setValidators(PasswordMatcher);
+  }
+
+  createAccount() {
+    this.errorMessage = '';
+    if (this.registerForm.valid) {
+      this.authService.register({loginName: this.registerForm.value.loginName, password: this.registerForm.value.password,})
+        .toPromise().then((res) => {
+          if (res && res['user']) {
+            this.router.navigate(['/home']);
+          }
+        }).catch((err) => this.errorMessage = 'Same user! Please choose different user name');
+    }
   }
 
 }
