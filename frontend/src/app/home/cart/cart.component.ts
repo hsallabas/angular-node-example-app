@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Product } from '@shared/models/data.model';
 import { DataService } from '@shared/services/data.service';
 import { UniversalStorage } from '@shared/storage/universal.storage';
-import { dataHelper } from '@shared/helpers/data.helper';
 
 
 export interface PeriodicElement {
