@@ -7,20 +7,6 @@ export interface ICustomControl {
   pattern?: string;
   minLength?: number;
   validators?: string[];
-  /**
-   * Available strings for validators
-   * 'min'
-   | 'max'
-   | 'required'
-   | 'requiredTrue'
-   | 'email'
-   | 'minLength'
-   | 'maxLength'
-   | 'pattern'
-   | 'nullValidator'
-   | 'compose '
-   | 'composeAsync'
-   */
 }
 
 export interface ICustomErrors {

@@ -24,7 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (tokenExists) {
       request = request.clone({
         setHeaders: {
-          'Authorization': `${this.authPrefix} ${this.auth.token}`
+          'Authorization': `${this.authPrefix} ${JSON.parse(this.auth.token)['access']['token']}`
         }
       });
     }
