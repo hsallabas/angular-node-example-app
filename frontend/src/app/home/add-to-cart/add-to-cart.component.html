@@ -1,0 +1,14 @@
+<div class="add-product-wrapper">
+    <div class="quantity">
+        <form [formGroup]="quantityFrom">
+            <button mat-icon-button aria-label="search" (click)="increase()">
+                <mat-icon>add</mat-icon>
+            </button>
+            <input class="quantity-input" formControlName="quantity">
+            <button mat-icon-button aria-label="search" (click)="decrease()">
+                <mat-icon>remove</mat-icon>
+            </button>
+        </form>
+    </div>
+    <button mat-raised-button class="add-cart-btn" (click)="addToCart()">Add Cart</button>
+</div>

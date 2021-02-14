@@ -1,0 +1,16 @@
+<mat-card [ngClass]="{'selected': selectedProduct.id === product.id}" (click)="selectProduct()">
+    <img *ngIf="product.type === 'Books'" mat-card-image src="../../assets/img/book-image.jpg"
+        alt="example book">
+    <img *ngIf="product.type === 'Music'" mat-card-image src="../../assets/img/music-image.jpg"
+        alt="example book">
+    <img *ngIf="product.type === 'Games'" mat-card-image src="../../assets/img/game-image.jpg"
+        alt="example book">
+    <mat-card-content>
+        <p>{{product.name}}</p>
+        <p>{{product.description}}</p>
+        <div class="type-wrapper">
+            <p><strong>Type: </strong> {{product.type}}</p>
+            <mat-icon> add_shopping_cart </mat-icon>
+        </div>
+    </mat-card-content>
+</mat-card>

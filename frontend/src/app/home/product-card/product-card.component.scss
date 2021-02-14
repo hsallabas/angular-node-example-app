@@ -1,0 +1,13 @@
+mat-card {
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    .type-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.selected {
+    border: 2px #222a45 solid !important;
+}

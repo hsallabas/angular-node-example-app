@@ -11,6 +11,16 @@ const getProducts = catchAsync(async (req, res) => {
   });
 });
 
+const getBaskets = catchAsync(async (req, res) => {
+  const baskets = await productService.getBaskets(req);
+  res.send({ 
+    data: baskets,
+    message: 'Get basket',
+    statusCode: httpStatus.OK,
+  });
+});
+
 module.exports = {
   getProducts,
+  getBaskets
 };

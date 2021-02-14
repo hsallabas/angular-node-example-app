@@ -11,6 +11,9 @@ import { MatTableModule } from '@angular/material/table';
 
 import { HomeRoutes } from './home.routing';
 import { HomeComponent } from './home.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
@@ -25,6 +28,6 @@ import { HomeComponent } from './home.component';
     MatSelectModule,
     MatTableModule
   ],
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ProductCardComponent, AddToCartComponent, CartComponent],
 })
 export class HomeModule { }
