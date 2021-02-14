@@ -1,8 +1,25 @@
+@import "~styles/main.scss";
+
 .session-form-hold {
     width: 100%;
-    min-width: 400px;
-    max-width: 400px;
     margin: 0 auto;
+
+    @include media-breakpoint-down(sm) {
+        
+        mat-card {
+            box-shadow: none;
+            height: 100vh;
+        }
+     }
+
+    @include media-breakpoint-up(md) {
+        min-width: 400px;
+        max-width: 400px;
+     }
+
+     .session-form-header {
+         text-align: center;
+     }
 
     .logo {
         width: 100px;
@@ -11,6 +28,9 @@
 
     .title {
         font-size: 21px;
+        color: #6c757d;
+        margin-bottom: 24px;
+        text-transform: uppercase;
     }
 
     form {
@@ -18,36 +38,31 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 24px;
-
-        .form-field {
-            width: 300px;
-        }
 
         mat-form-field.mat-form-field {
-            width: 300px !important;
+            width: 100%;
         }
 
         .remember-me-wrapper {
             padding: 0;
         }
 
-        .forgot-password-wrapper {
-            padding: 0;
-            text-align: end;
+        .login-btn-wrapper {
+            width: 100%;
+
+            .login-btn {
+                width: 100%;
+                margin: 16px 0;
+                padding: 10px 0;
+                border-radius: 5px;
+            }
         }
 
-        .login-btn {
-            width: 300px;
-            margin: 16px 0;
-        }
     }
 
     .login-wrapper {
         flex-direction: column;
-        box-sizing: border-box;
         display: flex;
-        place-content: center;
         align-items: center;
         margin-bottom: 24px;
     }

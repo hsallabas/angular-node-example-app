@@ -1,8 +1,12 @@
+@import "~styles/main.scss";
+
 .page-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 1rem;
-  height: 100%;
-  background-color: #222a45!important;
+  @include media-breakpoint-up(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 40px 1rem;
+    background-color: #222a45;
+  }
 }

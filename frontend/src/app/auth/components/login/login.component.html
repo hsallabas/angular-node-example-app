@@ -1,32 +1,24 @@
 <div class="session-form-hold">
   <mat-card>
     <mat-card-content>
-      <div class="text-center pt-8 pb-16">
+      <div class="session-form-header">
         <img class="logo" src="../../../../assets/img/login-logo.png" alt="">
-        <p class="title text-muted m-0 text-uppercase">Sign in to your account</p>
+        <p class="title">Sign in to your account</p>
       </div>
       <form [formGroup]="loginFrom" autocomplete="off">
-        <div>
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>User Name</mat-label>
-            <input matInput formControlName="loginName">
-            <mat-icon matSuffix class="material-icons-outlined">account_box</mat-icon>
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password">
-            <mat-icon matSuffix class="material-icons-outlined">vpn_key</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="row form-field">
-          <div class="col-6 remember-me-wrapper">
-            <mat-checkbox class="example-margin">Remember Me</mat-checkbox>
-          </div>
-          <div class="col-6 forgot-password-wrapper">
-            <a class="forgot-password" href="/auth/login"> Forgot Password? </a>
-          </div>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="loginName">
+          <mat-icon matSuffix class="material-icons-outlined">account_box</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-icon matSuffix class="material-icons-outlined">vpn_key</mat-icon>
+        </mat-form-field>
+        <div class="forgot-wrapper">
+          <mat-checkbox>Remember Me</mat-checkbox>
+          <a class="forgot-password" href="/auth/login"> Forgot Password? </a>
         </div>
         <div class="error-message" *ngIf="errorMessage">
           {{ errorMessage }}
