@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 import { HomeRoutes } from './home.routing';
 import { HomeComponent } from './home.component';
@@ -19,7 +20,8 @@ import { HomeComponent } from './home.component';
     MatIconModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   declarations: [HomeComponent],
 })

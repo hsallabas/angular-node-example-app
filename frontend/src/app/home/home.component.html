@@ -1,6 +1,6 @@
 <div class="content custom-theme">
     <div class="header">
-        <div class="row">
+        <div class="header-wrapper">
             <div class="logo-wrapper">
                 <mat-icon class="shopping-logo"> shopping_basket </mat-icon>
                 <span class="title">Products</span>
@@ -22,7 +22,7 @@
                                 </mat-select>
                             </mat-form-field>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 search-btn">
                             <button mat-icon-button aria-label="search">
                                 <mat-icon>search</mat-icon>
                             </button>
@@ -31,7 +31,126 @@
                 </form>
             </div>
             <div class="add-product-wrapper">
-                test
+                <div class="quantity">
+                    <button mat-icon-button aria-label="search">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <input class="quantity-input">
+                    <button mat-icon-button aria-label="search">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </div>
+                <button mat-raised-button class="add-cart-btn">Add Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="products-wrapper">
+        <div class="row">
+            <div class="col-xs-12 col-lg-9">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+                        <mat-card class="example-card">
+                            <img mat-card-image src="../../assets/img/music-image.jpg" alt="example book">
+                            <mat-card-content>
+                                <p>Sample Music</p>
+                                <p>The Shiba Inu is the smallest of the six original and distinct spitz br...</p>
+                                <div class="type-wrapper">
+                                    <p><strong>Type: </strong> Music</p>
+                                    <mat-icon> add_shopping_cart </mat-icon>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-3">
+                <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Type Column -->
+                    <ng-container matColumnDef="type">
+                        <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Quantity Column -->
+                    <ng-container matColumnDef="quantity">
+                        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
             </div>
         </div>
     </div>

@@ -1,9 +1,19 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+export interface PeriodicElement {
+  name: string;
+  type: string;
+  quantity: number;
+}
 
-import { TransferHttpService } from '@gorniv/ngx-universal';
-import { MetaService } from '@ngx-meta/core';
-import { UniversalStorage } from '@shared/storage/universal.storage';
-import { DOCUMENT, isPlatformServer } from '@angular/common';
+const ELEMENT_DATA: PeriodicElement[] = [
+  {name: 'Sample Book', quantity: 1, type: 'Book'},
+  {name: 'Sample Game', quantity: 2, type: 'Game'},
+  {name: 'Sample Book', quantity: 4, type: 'Book'},
+  {name: 'Sample Music', quantity: 3, type: 'Music'},
+  {name: 'Sample Music', quantity: 12, type: 'Music'},
+  {name: 'Sample Game', quantity: 6, type: 'Game'},
+  {name: 'Sample Game', quantity: 9, type: 'Game'},
+];
 
 @Component({
   selector: 'app-home',
@@ -11,6 +21,8 @@ import { DOCUMENT, isPlatformServer } from '@angular/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  displayedColumns: string[] = ['name', 'quantity', 'type'];
+  dataSource = ELEMENT_DATA;
 
   constructor() {}
 

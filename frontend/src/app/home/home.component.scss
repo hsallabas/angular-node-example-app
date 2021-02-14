@@ -1,0 +1,97 @@
+@import "~styles/main.scss";
+
+.header {
+    background-color: #222a45;
+    color: #ffffff;
+    height: 150px;
+
+    .header-wrapper {
+        padding: 0px 24px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        @include media-breakpoint-up(md) {
+            padding: 0px 48px;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .shopping-logo {
+                font-size: 32px !important;
+                width: 32px !important;
+                height: 32px !important;
+                min-width: 32px !important;
+                min-height: 32px !important;
+                line-height: 32px !important;
+            }
+
+            .title {
+                padding-top: 8px;
+                font-size: 20px;
+                padding-left: 8px;
+                text-transform: uppercase;
+            }
+        }
+
+        .search-form-wrapper {
+            display: none;
+
+            @include media-breakpoint-up(md) {
+                display: flex;
+
+                .search-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .add-product-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .quantity-input {
+            width: 40px;
+        }
+
+        .add-cart-btn {
+            color: #000000;
+            text-transform: uppercase;
+            border-radius: 4px;
+            height: 30px;
+            margin-left: 8px;
+        }
+    }
+}
+
+.products-wrapper {
+    margin: 16px 24px;
+
+    @include media-breakpoint-up(md) {
+        margin: 32px 48px;
+    }
+
+    mat-card {
+        margin-bottom: 16px;
+
+        .type-wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    table {
+        width: 100%;
+    }
+}
