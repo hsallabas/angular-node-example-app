@@ -15,8 +15,8 @@ export class DataService {
   /**
    * get All products
    */
-  getAllProducts() {
-    return this.http.get(`${environment.apiUrl}/v1/products`).pipe(
+  getProducts(query?: string) {
+    return this.http.get(`${environment.apiUrl}/v1/products${query ? query : ''}`).pipe(
       map((res) => {
         return res;
       }),

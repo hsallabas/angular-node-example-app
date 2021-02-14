@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedFormsModule } from '@shared/shared-forms/shared-forms.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -15,6 +16,7 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     HomeRoutes,
+    SharedFormsModule,
     TranslateModule,
     MatCardModule,
     MatIconModule,
